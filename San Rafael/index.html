@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lillybeauty San Rafael — Advanced Aesthetic Medicine</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── HERO WITH REAL PHOTO ── */
+    .hero { grid-template-columns: 48% 52%; }
+
+    .hero-photo-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .hero-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--bg) 0%, rgba(12,13,15,.3) 40%, transparent 70%);
+      z-index: 1;
+    }
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to top, var(--bg), transparent);
+      z-index: 1;
+    }
+
+    /* ── TREATMENT IMAGE CARDS ── */
+    .treat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .treat-img-card {
+      position: relative; overflow: hidden;
+      height: 380px; cursor: pointer;
+      display: block; text-decoration: none;
+    }
+    .treat-img-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .7s cubic-bezier(.4,0,.2,1), filter .4s;
+      filter: brightness(.45) saturate(.9);
+    }
+    .treat-img-card:hover img {
+      transform: scale(1.07);
+      filter: brightness(.58) saturate(1);
+    }
+    .treat-img-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.1) 55%, transparent 100%);
+      pointer-events: none;
+    }
+    .treat-img-card-border {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s cubic-bezier(.4,0,.2,1); z-index: 3;
+    }
+    .treat-img-card:hover .treat-img-card-border { transform: scaleX(1); }
+    .treat-img-card-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.75rem; z-index: 2;
+    }
+    .treat-img-card-tag {
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: .4rem;
+    }
+    .treat-img-card-body h3 {
+      color: #fff; font-size: 1.2rem; margin-bottom: .4rem;
+    }
+    .treat-img-card-body p {
+      font-size: .8rem; color: rgba(242,237,232,.65);
+      line-height: 1.6; margin-bottom: .9rem;
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease;
+    }
+    .treat-img-card:hover .treat-img-card-body p { max-height: 80px; }
+    .treat-img-price {
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: .08em; color: var(--gold-light);
+    }
+
+    /* ── PRODUCT CARDS WITH REAL PHOTOS ── */
+    .product-photo {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+      background: #111215;
+    }
+    .product-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .6s cubic-bezier(.4,0,.2,1), filter .4s;
+      filter: brightness(.88);
+    }
+    .product-card:hover .product-photo img {
+      transform: scale(1.06);
+      filter: brightness(1);
+    }
+    .product-photo-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(12,13,15,.75);
+      opacity: 0; transition: opacity .3s;
+    }
+    .product-card:hover .product-photo-overlay { opacity: 1; }
+
+    /* ── CTA WITH BACKGROUND IMAGE ── */
+    .cta-img-wrap {
+      position: relative; overflow: hidden;
+      border-radius: 4px; border: 1px solid var(--border);
+    }
+    .cta-img-wrap img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(.2) saturate(.7);
+    }
+    .cta-img-content {
+      position: relative; z-index: 1;
+      padding: 5.5rem 3rem; text-align: center;
+    }
+    .cta-img-content::before {
+      content: '';
+      position: absolute; top: -60%; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,149,108,.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 480px;
+    }
+    .about-strip-photo {
+      position: relative; overflow: hidden;
+    }
+    .about-strip-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(.7) saturate(.9);
+    }
+    .about-strip-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--bg) 100%);
+    }
+    .about-strip-text {
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      justify-content: center; padding: 4rem;
+    }
+    .about-strip-text h2 { color: var(--cream); margin-bottom: 1.25rem; }
+    .about-strip-text p  { margin-bottom: 1.5rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      .treat-grid { grid-template-columns: repeat(2,1fr); }
+      .about-strip { grid-template-columns: 1fr; }
+      .about-strip-photo { height: 300px; }
+    }
+    @media (max-width: 768px) {
+      .treat-grid { grid-template-columns: 1fr; }
+      .treat-img-card { height: 300px; }
+      .treat-img-card-body p { max-height: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Lilly<span>beauty</span><span class="logo-sub">San Rafael</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="facial-treatments.html">Facial</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛍
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </div>
+    <div class="hamburger" role="button" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ── -->
+<div class="mobile-nav">
+  <button class="mobile-close" aria-label="Close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="facial-treatments.html">Facial Treatments</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Medical Spa · San Rafael, CA</span>
+    <h1>Where Science<br>Meets <em>Beauty</em></h1>
+    <p class="hero-desc">Board-certified practitioners. FDA-approved devices. Medical-grade formulations crafted for lasting, visible results.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+      <a href="facial-treatments.html" class="btn btn-outline">Explore Treatments</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">50K+</div>
+        <div class="hero-stat-label">Treatments</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">98%</div>
+        <div class="hero-stat-label">Satisfaction</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">Years</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">30+</div>
+        <div class="hero-stat-label">Specialists</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real hero photo -->
+  <div class="hero-photo-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&h=1100&q=85"
+      alt="Facial spa treatment"
+      loading="eager"
+    >
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Board-Certified Practitioners</span>
+    <span class="marquee-item">FDA-Approved Devices</span>
+    <span class="marquee-item">Medical-Grade Skincare</span>
+    <span class="marquee-item">Personalized Treatment Plans</span>
+    <span class="marquee-item">Science-Backed Results</span>
+    <span class="marquee-item">15+ Years of Excellence</span>
+    <span class="marquee-item">50,000+ Treatments Performed</span>
+    <span class="marquee-item">98% Patient Satisfaction</span>
+    <span class="marquee-item">Board-Certified Practitioners</span>
+    <span class="marquee-item">FDA-Approved Devices</span>
+    <span class="marquee-item">Medical-Grade Skincare</span>
+    <span class="marquee-item">Personalized Treatment Plans</span>
+    <span class="marquee-item">Science-Backed Results</span>
+    <span class="marquee-item">15+ Years of Excellence</span>
+    <span class="marquee-item">50,000+ Treatments Performed</span>
+    <span class="marquee-item">98% Patient Satisfaction</span>
+  </div>
+</div>
+
+<!-- ── FEATURED TREATMENTS ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Our Services</span>
+      <h2>Precision Treatments</h2>
+      <p>Each protocol is designed by our medical team and tailored to your unique skin profile.</p>
+    </div>
+    <div class="treat-grid">
+
+      <a href="facial-treatments.html" class="treat-img-card fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&h=400&q=80"
+          alt="HydraFacial treatment"
+          loading="lazy"
+        >
+        <div class="treat-img-card-border"></div>
+        <div class="treat-img-card-body">
+          <span class="treat-img-card-tag">Deep Hydration</span>
+          <h3>HydraFacial</h3>
+          <p>Cleanse, exfoliate, and hydrate in one signature multi-step session. Immediate glow, zero downtime.</p>
+          <span class="treat-img-price">From $150</span>
+        </div>
+      </a>
+
+      <a href="facial-treatments.html" class="treat-img-card fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=600&h=400&q=80"
+          alt="LED light facial therapy"
+          loading="lazy"
+        >
+        <div class="treat-img-card-border"></div>
+        <div class="treat-img-card-body">
+          <span class="treat-img-card-tag">Light Therapy</span>
+          <h3>LED Facial</h3>
+          <p>Targeted wavelengths accelerate collagen synthesis and eliminate acne-causing bacteria.</p>
+          <span class="treat-img-price">From $95</span>
+        </div>
+      </a>
+
+      <a href="facial-treatments.html" class="treat-img-card fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?auto=format&fit=crop&w=600&h=400&q=80"
+          alt="Dermaplaning facial treatment"
+          loading="lazy"
+        >
+        <div class="treat-img-card-border"></div>
+        <div class="treat-img-card-body">
+          <span class="treat-img-card-tag">Exfoliation &amp; Resurfacing</span>
+          <h3>Dermaplaning</h3>
+          <p>Surgical-blade exfoliation removes dead skin and peach fuzz for an instant glass-skin glow.</p>
+          <span class="treat-img-price">From $115</span>
+        </div>
+      </a>
+
+      <a href="facial-treatments.html" class="treat-img-card fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&h=400&q=80"
+          alt="Anti-aging facial treatment"
+          loading="lazy"
+        >
+        <div class="treat-img-card-border"></div>
+        <div class="treat-img-card-body">
+          <span class="treat-img-card-tag">Anti-Aging</span>
+          <h3>Anti-Aging Facial</h3>
+          <p>Peptide and antioxidant therapy that visibly firms, lifts, and rejuvenates mature skin.</p>
+          <span class="treat-img-price">From $180</span>
+        </div>
+      </a>
+
+      <a href="facial-treatments.html" class="treat-img-card fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&h=400&q=80"
+          alt="Acne treatment facial"
+          loading="lazy"
+        >
+        <div class="treat-img-card-border"></div>
+        <div class="treat-img-card-body">
+          <span class="treat-img-card-tag">Acne Control</span>
+          <h3>Acne Treatment</h3>
+          <p>Clinical protocol combining enzymatic cleansing, extractions, and antibacterial light therapy.</p>
+          <span class="treat-img-price">From $110</span>
+        </div>
+      </a>
+
+      <a href="facial-treatments.html" class="treat-img-card fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&h=400&q=80"
+          alt="Oxygen facial treatment"
+          loading="lazy"
+        >
+        <div class="treat-img-card-border"></div>
+        <div class="treat-img-card-body">
+          <span class="treat-img-card-tag">Rejuvenation &amp; Glow</span>
+          <h3>Oxygen Facial</h3>
+          <p>Pressurized oxygen infused with vitamins and hyaluronic acid for an instant red-carpet glow.</p>
+          <span class="treat-img-price">From $135</span>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="facial-treatments.html" class="btn btn-ghost">View All Treatments</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── ABOUT STRIP ── -->
+<div class="about-strip">
+  <div class="about-strip-photo">
+    <img
+      src="images/Lymphatic Glow Lift – Ambition Medical Spa.jpg"
+      alt="Hands-on facial treatment at Lillybeauty San Rafael"
+      loading="lazy"
+    >
+  </div>
+  <div class="about-strip-text">
+    <span class="section-tag">Rooted in San Rafael</span>
+    <h2>Your Skin Deserves<br><em style="color:var(--gold)">Real Results</em></h2>
+    <p>Lillybeauty San Rafael was built on a simple belief — that everyone deserves access to advanced skincare in a space that feels welcoming, unhurried, and truly personal.</p>
+    <p>We combine medical-grade technology with a hands-on, client-first approach. No pressure. No one-size-fits-all protocols. Just thoughtful, effective care tailored to you.</p>
+    <a href="about.html" class="btn btn-outline" style="align-self:flex-start;margin-top:.5rem;">Our Story</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── SHOP PREVIEW ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Medical-Grade Skincare</span>
+      <h2>The Edit</h2>
+      <p>Clinical formulations developed by our practitioners and engineered for real, measurable results.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card fade-up" data-category="serums">
+        <div class="product-photo">
+          <img
+            src="https://images.unsplash.com/photo-1556228578-dd539282b964?auto=format&fit=crop&w=500&h=380&q=80"
+            alt="Radiance Serum"
+            loading="lazy"
+          >
+          <div class="product-photo-overlay">
+            <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.4rem;" onclick="addToCart('Radiance Serum',68,'✨')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">Serums</div>
+          <div class="product-name">Radiance Serum</div>
+          <div class="product-desc">Vitamin C brightening formula</div>
+          <div class="product-bottom">
+            <span class="product-price">$68</span>
+            <button class="add-btn" onclick="addToCart('Radiance Serum',68,'✨')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up" data-category="serums">
+        <div class="product-photo">
+          <img
+            src="https://images.unsplash.com/photo-1571875257727-256c39da42af?auto=format&fit=crop&w=500&h=380&q=80"
+            alt="Hydrating Serum"
+            loading="lazy"
+          >
+          <div class="product-photo-overlay">
+            <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.4rem;" onclick="addToCart('Hydrating Serum',62,'💧')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">Serums</div>
+          <div class="product-name">Hydrating Serum</div>
+          <div class="product-desc">Hyaluronic acid moisture boost</div>
+          <div class="product-bottom">
+            <span class="product-price">$62</span>
+            <button class="add-btn" onclick="addToCart('Hydrating Serum',62,'💧')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up" data-category="moisturizers">
+        <div class="product-photo">
+          <img
+            src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=500&h=380&q=80"
+            alt="Hydra Cream"
+            loading="lazy"
+          >
+          <div class="product-photo-overlay">
+            <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.4rem;" onclick="addToCart('Hydra Cream',54,'🧴')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">Moisturizers</div>
+          <div class="product-name">Hydra Cream</div>
+          <div class="product-desc">Deep moisture with hyaluronic acid</div>
+          <div class="product-bottom">
+            <span class="product-price">$54</span>
+            <button class="add-btn" onclick="addToCart('Hydra Cream',54,'🧴')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up" data-category="cleansers">
+        <div class="product-photo">
+          <img
+            src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=500&h=380&q=80"
+            alt="Gentle Cleanser"
+            loading="lazy"
+          >
+          <div class="product-photo-overlay">
+            <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.4rem;" onclick="addToCart('Gentle Cleanser',38,'🌿')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">Cleansers</div>
+          <div class="product-name">Gentle Cleanser</div>
+          <div class="product-desc">Soothing botanical wash</div>
+          <div class="product-bottom">
+            <span class="product-price">$38 <span class="old">$48</span></span>
+            <button class="add-btn" onclick="addToCart('Gentle Cleanser',38,'🌿')">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="shop.html" class="btn btn-ghost">Shop All Products</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA WITH BACKGROUND PHOTO ── -->
+<section class="section">
+  <div class="container">
+    <div class="cta-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1400&q=80"
+        alt="Medical spa consultation"
+        loading="lazy"
+      >
+      <div class="cta-img-content">
+        <span class="section-tag">Ready to Begin?</span>
+        <h2 style="color:var(--cream);margin-bottom:.9rem;">Your Transformation Starts Here</h2>
+        <p style="margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;">Schedule your complimentary consultation with one of our board-certified practitioners and receive a personalized treatment plan.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary">Book a Free Consultation</a>
+          <a href="about.html" class="btn btn-outline">Meet Our Team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Lilly<span>beauty</span></h3><span class="logo-sub">San Rafael</span>
+        <p>Advanced aesthetic treatments and medical-grade skincare for those who seek lasting results. Serving San Rafael, CA since 2010.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="facial-treatments.html">HydraFacial</a></li>
+          <li><a href="facial-treatments.html">LED Facial</a></li>
+          <li><a href="facial-treatments.html">Dermaplaning</a></li>
+          <li><a href="facial-treatments.html">Oxygen Facial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="press.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="shipping.html">Shipping &amp; Returns</a></li>
+          <li><a href="sustainability.html">Sustainability</a></li>
+          <li><a href="ingredients.html">Ingredients</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Lillybeauty San Rafael. 123 Fourth Street, San Rafael, CA 94901</p>
+      <p>(628) 488-3954 · info@lillybeautymedspasanrafael.com</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── CART SIDEBAR ── -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close-btn" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty"><span style="font-size:2rem">🛒</span>Your cart is empty</div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-tot">
+      <span class="cart-tot-lbl">Total</span>
+      <span class="cart-tot-amt" id="cartTotal">$0.00</span>
+    </div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;">Checkout</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

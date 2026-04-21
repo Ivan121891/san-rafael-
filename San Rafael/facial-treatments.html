@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facial Treatments — Lillybeauty San Rafael</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .treatment-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 2px;
+    }
+    .treatment-detail.reverse .treatment-visual { order: 2; }
+    .treatment-detail.reverse .treatment-content { order: 1; }
+
+    .treatment-visual {
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+    .treatment-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+      transition: transform .7s cubic-bezier(.4,0,.2,1), filter .4s;
+      filter: brightness(.85);
+    }
+    .treatment-detail:hover .treatment-visual img {
+      transform: scale(1.04);
+      filter: brightness(.97);
+    }
+    .treatment-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(201,149,108,.07), transparent);
+      pointer-events: none;
+    }
+    .treatment-content {
+      background: var(--bg-card);
+      padding: 3.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .t-tag {
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .6rem; display: block;
+    }
+    .treatment-content h2 { color: var(--cream); margin-bottom: 1rem; font-size: clamp(1.4rem,2.5vw,2rem); }
+    .treatment-content > p { margin-bottom: 1.25rem; font-size: .9rem; }
+
+    /* Page hero with local image */
+    .facial-hero {
+      min-height: 82vh;
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .facial-hero img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 35%;
+      filter: brightness(.38);
+    }
+    .facial-hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 35%;
+      background: linear-gradient(to bottom, rgba(12,13,15,.85), transparent);
+      pointer-events: none; z-index: 1;
+    }
+    .facial-hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
+      background: linear-gradient(to top, var(--bg), transparent);
+      pointer-events: none; z-index: 1;
+    }
+    .facial-hero-content {
+      position: relative; z-index: 2;
+      padding: 0 0 5rem; width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      .treatment-detail { grid-template-columns: 1fr; }
+      .treatment-detail.reverse .treatment-visual { order: 0; }
+      .treatment-detail.reverse .treatment-content { order: 0; }
+      .treatment-visual { min-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Lilly<span>beauty</span><span class="logo-sub">San Rafael</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="facial-treatments.html" class="active">Facial</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛍<span class="cart-badge" id="cartBadge">0</span></button>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="facial-treatments.html">Facial Treatments</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="facial-hero">
+  <img src="images/Services facial – Ambition Medical Spa.jpg" alt="Facial treatments at Lillybeauty San Rafael">
+  <div class="facial-hero-content">
+    <div class="container">
+      <span class="page-hero-tag">Advanced Aesthetics</span>
+      <h1 style="color:var(--cream);margin-bottom:1rem;">Facial<br>Treatments</h1>
+      <p style="max-width:520px;">Six clinically proven protocols, each designed to address specific skin concerns with medical-grade precision and zero compromise on safety.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── TREATMENTS ── -->
+<section style="padding:3rem 0 0;">
+
+  <!-- HydraFacial -->
+  <div class="treatment-detail">
+    <div class="treatment-visual">
+      <img src="images/Hydrafacial-1920.webp" alt="HydraFacial treatment">
+    </div>
+    <div class="treatment-content">
+      <span class="t-tag">Signature Treatment</span>
+      <h2>HydraFacial</h2>
+      <p>Our most requested treatment combines deep cleansing, gentle exfoliation, painless extractions, and intensive hydration in a single session. A proprietary vortex-fusion technology delivers customized serums directly into the skin.</p>
+      <span class="price-badge">From $150 · 60 min</span>
+      <ul class="treatment-features">
+        <li>Immediate visible results with zero downtime</li>
+        <li>Suitable for all skin types including sensitive</li>
+        <li>Customizable booster serums for targeted concerns</li>
+        <li>Improves tone, texture, and radiance in one session</li>
+        <li>Recommended monthly for optimal skin health</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Book HydraFacial</a>
+    </div>
+  </div>
+
+  <!-- LED Facial -->
+  <div class="treatment-detail reverse">
+    <div class="treatment-visual">
+      <img src="images/Lymphatic Glow Lift – Ambition Medical Spa.jpg" alt="LED light facial therapy">
+    </div>
+    <div class="treatment-content">
+      <span class="t-tag">Light Therapy</span>
+      <h2>LED Facial</h2>
+      <p>Targeted light wavelengths penetrate different depths of the skin to trigger specific cellular responses. Red light stimulates collagen, blue light eliminates acne bacteria, and near-infrared reduces deep inflammation.</p>
+      <span class="price-badge">From $95 · 30 min</span>
+      <ul class="treatment-features">
+        <li>Red (630nm): collagen synthesis and anti-aging</li>
+        <li>Blue (415nm): acne bacteria elimination</li>
+        <li>Near-infrared: deep tissue repair and recovery</li>
+        <li>Completely painless and non-invasive</li>
+        <li>Ideal add-on to any facial treatment</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Book LED Facial</a>
+    </div>
+  </div>
+
+  <!-- Dermaplaning -->
+  <div class="treatment-detail">
+    <div class="treatment-visual">
+      <img src="images/Woman applying skincare.jpg" alt="Dermaplaning facial treatment">
+    </div>
+    <div class="treatment-content">
+      <span class="t-tag">Exfoliation &amp; Resurfacing</span>
+      <h2>Dermaplaning</h2>
+      <p>A precise manual exfoliation technique using a sterile surgical blade to gently remove the outermost layer of dead skin cells and vellus hair (peach fuzz), revealing a dramatically smoother, brighter complexion with an immediate glass-skin effect.</p>
+      <span class="price-badge">From $115 · 45 min</span>
+      <ul class="treatment-features">
+        <li>Instantly smoother skin texture and radiant glow</li>
+        <li>Removes vellus hair for flawless makeup application</li>
+        <li>Enhances absorption of serums and moisturizers</li>
+        <li>Safe for all skin types, including sensitive skin</li>
+        <li>Zero downtime — return to normal activity immediately</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Book Dermaplaning</a>
+    </div>
+  </div>
+
+  <!-- Anti-Aging Facial -->
+  <div class="treatment-detail reverse">
+    <div class="treatment-visual">
+      <img src="images/Korean Facial Treatment result showing radiant glowing skin.jpg" alt="Anti-aging facial">
+    </div>
+    <div class="treatment-content">
+      <span class="t-tag">Anti-Aging</span>
+      <h2>Anti-Aging Facial</h2>
+      <p>A comprehensive rejuvenation protocol that layers cutting-edge peptide complexes, growth factors, and antioxidant therapies to visibly firm, lift, and restore a youthful appearance. Targets fine lines, elasticity loss, and dullness.</p>
+      <span class="price-badge">From $180 · 75 min</span>
+      <ul class="treatment-features">
+        <li>Peptide infusion to stimulate collagen and elastin</li>
+        <li>Growth factor serum for cellular regeneration</li>
+        <li>Facial massage for lymphatic drainage</li>
+        <li>Firming mask with hyaluronic acid and vitamins</li>
+        <li>Visible lifting effect from the first treatment</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Book Anti-Aging Facial</a>
+    </div>
+  </div>
+
+  <!-- Acne Treatment -->
+  <div class="treatment-detail">
+    <div class="treatment-visual">
+      <img src="images/Niacinamide Serum for Open Pores – Smooth Skin Guide – inzora.png" alt="Acne treatment" style="object-position:center top;">
+    </div>
+    <div class="treatment-content">
+      <span class="t-tag">Acne Control</span>
+      <h2>Acne Treatment</h2>
+      <p>A clinical-strength multi-modality protocol combining enzymatic exfoliation, professional extractions, antibacterial blue light, and healing masks to clear active breakouts and prevent future flare-ups.</p>
+      <span class="price-badge">From $110 · 60 min</span>
+      <ul class="treatment-features">
+        <li>Deep pore cleansing and enzymatic exfoliation</li>
+        <li>Safe professional extraction of comedones</li>
+        <li>Antibacterial blue LED to kill P. acnes bacteria</li>
+        <li>Calming Sulfur or Salicylic treatment mask</li>
+        <li>Home care protocol included with every visit</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Book Acne Treatment</a>
+    </div>
+  </div>
+
+  <!-- Oxygen Facial -->
+  <div class="treatment-detail reverse">
+    <div class="treatment-visual">
+      <img src="images/Korean facial treatment.jpg" alt="Oxygen facial treatment">
+    </div>
+    <div class="treatment-content">
+      <span class="t-tag">Rejuvenation &amp; Glow</span>
+      <h2>Oxygen Facial</h2>
+      <p>A pressurized stream of pure oxygen is infused with a customized blend of vitamins, minerals, and hyaluronic acid directly into the skin. Instantly plumps, brightens, and revitalizes tired or stressed skin with a luminous, red-carpet glow.</p>
+      <span class="price-badge">From $135 · 60 min</span>
+      <ul class="treatment-features">
+        <li>Immediate plumping and radiance — ideal before events</li>
+        <li>Delivers vitamins C, A, E and hyaluronic acid deep into skin</li>
+        <li>Reduces the appearance of fine lines and dullness</li>
+        <li>Completely painless and suitable for all skin types</li>
+        <li>Zero downtime with long-lasting hydration effect</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Book Oxygen Facial</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── CTA ── -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <span class="section-tag">Not Sure Which Treatment?</span>
+      <h2>Start with a Free Consultation</h2>
+      <p>Our practitioners will assess your skin and recommend the ideal protocol for your specific goals and budget.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary">Book Consultation</a>
+        <a href="shop.html" class="btn btn-outline">Shop Skincare</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Lilly<span>beauty</span></h3><span class="logo-sub">San Rafael</span>
+        <p>Advanced aesthetic treatments and medical-grade skincare for those who seek lasting results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="facial-treatments.html">HydraFacial</a></li>
+          <li><a href="facial-treatments.html">LED Facial</a></li>
+          <li><a href="facial-treatments.html">Dermaplaning</a></li>
+          <li><a href="facial-treatments.html">Anti-Aging Facial</a></li>
+          <li><a href="facial-treatments.html">Oxygen Facial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="shipping.html">Shipping &amp; Returns</a></li>
+          <li><a href="ingredients.html">Ingredients</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Lillybeauty San Rafael. 123 Fourth Street, San Rafael, CA 94901</p>
+      <p>(628) 488-3954 · info@lillybeautymedspasanrafael.com</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head"><h3>Your Cart</h3><button class="cart-close-btn" id="cartClose">✕</button></div>
+  <div class="cart-items" id="cartItems"><div class="cart-empty"><span style="font-size:2rem">🛒</span>Your cart is empty</div></div>
+  <div class="cart-foot">
+    <div class="cart-tot"><span class="cart-tot-lbl">Total</span><span class="cart-tot-amt" id="cartTotal">$0.00</span></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;">Checkout</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Lillybeauty San Rafael</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Lilly<span>beauty</span><span class="logo-sub">San Rafael</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="facial-treatments.html">Facial</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛍<span class="cart-badge" id="cartBadge">0</span></button>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="facial-treatments.html">Facial Treatments</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="page-hero-tag">Get in Touch</span>
+      <h1>Let's Talk</h1>
+      <p>Ready to begin your treatment journey? Book a consultation, ask a question, or simply say hello. Our team responds within 24–48 business hours.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT SPLIT ── -->
+<section style="padding:0;border-top:1px solid var(--border);">
+  <div class="contact-split">
+
+    <!-- Info panel -->
+    <div class="contact-info">
+      <h2>Visit Us</h2>
+
+      <div class="c-detail">
+        <div class="c-icon">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p>1398 SW 160th Ave STE 305<br>Sunrise, FL 33326</p>
+        </div>
+      </div>
+
+      <div class="c-detail">
+        <div class="c-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p>(628) 488-3954</p>
+        </div>
+      </div>
+
+      <div class="c-detail">
+        <div class="c-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p>info@lillybeautymedspasanrafael.com</p>
+        </div>
+      </div>
+
+      <div class="hours-block">
+        <h4>Business Hours</h4>
+        <div class="hours-row">
+          <span class="day">Monday</span>
+          <span class="time">10:00 AM – 6:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Tuesday</span>
+          <span class="time">10:00 AM – 6:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Wednesday</span>
+          <span class="time">10:00 AM – 6:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Thursday</span>
+          <span class="time">10:00 AM – 6:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Friday</span>
+          <span class="time">10:00 AM – 6:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Saturday</span>
+          <span class="closed">Closed</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Sunday</span>
+          <span class="time">10:00 AM – 6:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Map placeholder -->
+      <div style="margin-top:2rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.8!2d-80.318!3d26.145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a3e!2s1398+SW+160th+Ave+STE+305%2C+Sunrise%2C+FL+33326!5e0!3m2!1sen!2sus!4v1700000000000"
+          width="100%" height="200" style="border:0;display:block;filter:grayscale(1) invert(0.9);"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Form panel -->
+    <div class="contact-form-wrap">
+      <h2>Book a Consultation</h2>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="firstName">First Name</label>
+            <input class="form-input" id="firstName" type="text" placeholder="Sofia" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">Last Name</label>
+            <input class="form-input" id="lastName" type="text" placeholder="Martinez" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" id="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input class="form-input" id="phone" type="tel" placeholder="(754) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="service">Service of Interest</label>
+          <select class="form-select" id="service">
+            <option value="" disabled selected>Select a service…</option>
+            <optgroup label="Facial Treatments">
+              <option>HydraFacial</option>
+              <option>LED Facial</option>
+              <option>Chemical Peel</option>
+              <option>Anti-Aging Facial</option>
+              <option>Acne Treatment</option>
+              <option>Microneedling</option>
+            </optgroup>
+            <optgroup label="Body Treatments">
+              <option>Body Sculpting</option>
+              <option>Body Contouring</option>
+              <option>Laser Treatment</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option>General Consultation</option>
+              <option>Product Inquiry</option>
+              <option>Not Sure — Need Guidance</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="preferred">Preferred Date/Time</label>
+          <input class="form-input" id="preferred" type="text" placeholder="e.g. Weekday mornings, or a specific date">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Tell Us About Your Goals</label>
+          <textarea class="form-textarea" id="message" placeholder="Share any skin concerns, previous treatments, questions, or anything else that would help us prepare for your consultation…"></textarea>
+        </div>
+
+        <div class="form-group" style="display:flex;gap:.75rem;align-items:center;">
+          <input type="checkbox" id="consent" style="accent-color:var(--gold);width:16px;height:16px;">
+          <label for="consent" style="font-size:.8rem;color:var(--muted);cursor:pointer;">
+            I agree to be contacted about my inquiry. View our <a href="privacy.html" style="color:var(--gold);text-decoration:underline;">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem;">
+          Send Message
+        </button>
+
+        <p style="font-size:.78rem;margin-top:1rem;text-align:center;">
+          We typically respond within 24–48 business hours.
+        </p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── QUICK CONTACT CARDS ── -->
+<section class="section" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Other Ways to Reach Us</span>
+      <h2>We're Here to Help</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);">
+      <div style="background:var(--bg-card);padding:2.5rem;text-align:center;" class="fade-up">
+        <div style="font-size:2rem;margin-bottom:1rem;">📞</div>
+        <h4 style="color:var(--cream);margin-bottom:.4rem;">Call Us</h4>
+        <p style="font-size:.87rem;margin-bottom:.75rem;">Speak directly with our front desk team for immediate assistance.</p>
+        <a href="tel:6284883954" style="color:var(--gold);font-size:.9rem;font-weight:600;">(628) 488-3954</a>
+      </div>
+      <div style="background:var(--bg-card);padding:2.5rem;text-align:center;" class="fade-up">
+        <div style="font-size:2rem;margin-bottom:1rem;">✉️</div>
+        <h4 style="color:var(--cream);margin-bottom:.4rem;">Email Us</h4>
+        <p style="font-size:.87rem;margin-bottom:.75rem;">For non-urgent questions or detailed inquiries about treatments and products.</p>
+        <a href="mailto:info@lillybeautymedspasanrafael.com" style="color:var(--gold);font-size:.87rem;font-weight:500;">info@lillybeautymedspasanrafael.com</a>
+      </div>
+      <div style="background:var(--bg-card);padding:2.5rem;text-align:center;" class="fade-up">
+        <div style="font-size:2rem;margin-bottom:1rem;">📍</div>
+        <h4 style="color:var(--cream);margin-bottom:.4rem;">Visit Us</h4>
+        <p style="font-size:.87rem;margin-bottom:.75rem;">Walk-ins welcome during business hours for product purchases and quick questions.</p>
+        <span style="color:var(--gold);font-size:.85rem;font-weight:500;">1398 SW 160th Ave STE 305</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Lilly<span>beauty</span></h3><span class="logo-sub">San Rafael</span>
+        <p>Advanced aesthetic treatments and medical-grade skincare for those who seek lasting results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="facial-treatments.html">HydraFacial</a></li>
+          <li><a href="facial-treatments.html">LED Facial</a></li>
+          <li><a href="facial-treatments.html">Dermaplaning</a></li>
+          <li><a href="facial-treatments.html">Oxygen Facial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="shipping.html">Shipping &amp; Returns</a></li>
+          <li><a href="ingredients.html">Ingredients</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Lillybeauty San Rafael. 123 Fourth Street, San Rafael, CA 94901</p>
+      <p>(628) 488-3954 · info@lillybeautymedspasanrafael.com</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head"><h3>Your Cart</h3><button class="cart-close-btn" id="cartClose">✕</button></div>
+  <div class="cart-items" id="cartItems"><div class="cart-empty"><span style="font-size:2rem">🛒</span>Your cart is empty</div></div>
+  <div class="cart-foot">
+    <div class="cart-tot"><span class="cart-tot-lbl">Total</span><span class="cart-tot-amt" id="cartTotal">$0.00</span></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;">Checkout</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

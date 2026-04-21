@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Lillybeauty San Rafael</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .faq-list { max-width: 780px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; background: none; border: none; text-align: left;
+      padding: 1.5rem 0; cursor: pointer;
+      font-family: var(--sans); font-size: .95rem; font-weight: 600;
+      color: var(--cream); display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem;
+    }
+    .faq-q .faq-icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a p { padding-bottom: 1.5rem; font-size: .9rem; line-height: 1.8; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Lilly<span>beauty</span><span class="logo-sub">San Rafael</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="facial-treatments.html">Facial</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛍<span class="cart-badge" id="cartBadge">0</span></button>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="facial-treatments.html">Facial Treatments</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="page-hero-tag">Help Center</span>
+      <h1>Frequently Asked<br>Questions</h1>
+      <p>Everything you need to know before your visit or purchase.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">Do I need to book a consultation before a treatment? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Not always — most of our facial treatments can be booked directly. However, we recommend a free consultation for first-time clients so we can assess your skin and recommend the best protocol for your goals.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How long do treatments take? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Treatment times vary: HydraFacial and Acne Treatment take approximately 60 minutes, Dermaplaning 45 minutes, LED Facial 30 minutes, Anti-Aging Facial 75 minutes, and Oxygen Facial 60 minutes. Allow extra time for your first visit paperwork.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is there downtime after treatments? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Most of our treatments have zero downtime — you can return to your normal routine immediately. Some clients may experience mild redness after certain treatments, which typically fades within a few hours.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Are the treatments safe for sensitive skin? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Yes. All of our protocols are designed with safety in mind and can be adapted for sensitive skin types. We conduct a skin assessment before every treatment to ensure the correct approach for you.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How often should I come in for treatments? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>For optimal results, most clients benefit from treatments every 4–6 weeks. Your practitioner will recommend a personalized schedule based on your skin goals and the specific treatment.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What is your cancellation policy? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We ask for at least 24 hours notice to cancel or reschedule. Cancellations with less than 24 hours notice may be subject to a cancellation fee. No-shows will be charged the full treatment cost.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Do you offer gift cards? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Yes! Gift cards are available for any amount and can be used toward treatments or shop products. Contact us at info@lillybeautymedspasanrafael.com to purchase one.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What payment methods do you accept? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We accept all major credit and debit cards, Apple Pay, Google Pay, and cash. Payment is due at the time of service.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How do I know which treatment is right for me? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Book a free consultation and one of our practitioners will assess your skin, discuss your concerns and goals, and recommend the most effective treatment plan for you — with no obligation to book.</p></div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:3.5rem;">
+      <p style="margin-bottom:1.5rem;color:var(--dim);">Still have questions? We're happy to help.</p>
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Lilly<span>beauty</span></h3><span class="logo-sub">San Rafael</span>
+        <p>Advanced aesthetic treatments and medical-grade skincare for those who seek lasting results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="facial-treatments.html">HydraFacial</a></li>
+          <li><a href="facial-treatments.html">LED Facial</a></li>
+          <li><a href="facial-treatments.html">Dermaplaning</a></li>
+          <li><a href="facial-treatments.html">Oxygen Facial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="shipping.html">Shipping &amp; Returns</a></li>
+          <li><a href="ingredients.html">Ingredients</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Lillybeauty San Rafael. 123 Fourth Street, San Rafael, CA 94901</p>
+      <p>(628) 488-3954 · info@lillybeautymedspasanrafael.com</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head"><h3>Your Cart</h3><button class="cart-close-btn" id="cartClose">✕</button></div>
+  <div class="cart-items" id="cartItems"><div class="cart-empty"><span style="font-size:2rem">🛒</span>Your cart is empty</div></div>
+  <div class="cart-foot">
+    <div class="cart-tot"><span class="cart-tot-lbl">Total</span><span class="cart-tot-amt" id="cartTotal">$0.00</span></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;">Checkout</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

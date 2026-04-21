@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Lillybeauty San Rafael</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Real image support for product cards */
+    .product-img {
+      aspect-ratio: 1;
+      overflow: hidden;
+      position: relative;
+      background: #111215;
+    }
+    .product-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+      transition: transform .55s cubic-bezier(.4,0,.2,1), filter .3s;
+      filter: brightness(.92);
+    }
+    .product-card:hover .product-img img {
+      transform: scale(1.06);
+      filter: brightness(1);
+    }
+    .product-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(10,11,13,.72);
+      opacity: 0; transition: opacity .3s;
+    }
+    .product-card:hover .product-overlay { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Lilly<span>beauty</span><span class="logo-sub">San Rafael</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="facial-treatments.html">Facial</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛍<span class="cart-badge" id="cartBadge">0</span></button>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="facial-treatments.html">Facial Treatments</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="page-hero-tag">Medical-Grade Skincare</span>
+      <h1>The Shop</h1>
+      <p>Clinical-strength formulations developed by our practitioners for use between treatments. Every product is tested, proven, and used in-clinic.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SHOP ── -->
+<section class="section">
+  <div class="container">
+    <div class="shop-layout">
+
+      <!-- Sidebar -->
+      <aside>
+        <p class="shop-sidebar-title">Categories</p>
+        <ul class="filter-list">
+          <li class="active" data-filter="all">All Products</li>
+          <li data-filter="serums">Serums</li>
+          <li data-filter="moisturizers">Moisturizers</li>
+          <li data-filter="cleansers">Cleansers</li>
+          <li data-filter="oils">Oils</li>
+          <li data-filter="masks">Masks</li>
+          <li data-filter="toners">Toners</li>
+        </ul>
+        <p class="shop-sidebar-title">Price Range</p>
+        <ul class="filter-list">
+          <li class="active" data-filter="all">All Prices</li>
+          <li>Under $50</li>
+          <li>$50 – $70</li>
+          <li>Over $70</li>
+        </ul>
+      </aside>
+
+      <!-- Product grid -->
+      <div>
+        <div class="shop-header">
+          <span class="shop-count" id="shopCount">14 products</span>
+        </div>
+        <div class="products-grid">
+
+          <!-- ── SERUMS ── -->
+          <div class="product-card fade-up" data-category="serums">
+            <div class="product-img">
+              <img src="images/serum-bottles-1.png" alt="Radiance Serum" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Radiance Serum',68,'✨')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Serums</div>
+              <div class="product-name">Radiance Serum</div>
+              <div class="product-desc">Vitamin C brightening formula</div>
+              <div class="product-bottom">
+                <span class="product-price">$68</span>
+                <button class="add-btn" onclick="addToCart('Radiance Serum',68,'✨')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="serums">
+            <div class="product-img">
+              <img src="images/eye-serum-bottles.png" alt="Hydrating Serum" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Hydrating Serum',62,'💧')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Serums</div>
+              <div class="product-name">Hydrating Serum</div>
+              <div class="product-desc">Hyaluronic acid moisture boost</div>
+              <div class="product-bottom">
+                <span class="product-price">$62</span>
+                <button class="add-btn" onclick="addToCart('Hydrating Serum',62,'💧')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="serums">
+            <div class="product-img">
+              <img src="images/amber-dropper-bottles.png" alt="Age Defense Serum" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Age Defense Serum',78,'⚗️')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Serums</div>
+              <div class="product-name">Age Defense Serum</div>
+              <div class="product-desc">Retinol &amp; peptide complex</div>
+              <div class="product-bottom">
+                <span class="product-price">$78</span>
+                <button class="add-btn" onclick="addToCart('Age Defense Serum',78,'⚗️')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="serums">
+            <div class="product-img">
+              <img src="images/spray-bottles.png" alt="Glow Serum" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Glow Serum',58,'✨')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Serums</div>
+              <div class="product-name">Glow Serum</div>
+              <div class="product-desc">Niacinamide brightening boost</div>
+              <div class="product-bottom">
+                <span class="product-price">$58 <span class="old">$68</span></span>
+                <button class="add-btn" onclick="addToCart('Glow Serum',58,'✨')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── MOISTURIZERS ── -->
+          <div class="product-card fade-up" data-category="moisturizers">
+            <div class="product-img">
+              <img src="images/cream-jars-colored.png" alt="Hydra Cream" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Hydra Cream',54,'🧴')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Moisturizers</div>
+              <div class="product-name">Hydra Cream</div>
+              <div class="product-desc">Deep moisture with hyaluronic acid</div>
+              <div class="product-bottom">
+                <span class="product-price">$54</span>
+                <button class="add-btn" onclick="addToCart('Hydra Cream',54,'🧴')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="moisturizers">
+            <div class="product-img">
+              <img src="images/jars-wooden-lid.png" alt="Night Cream" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Night Cream',64,'🌙')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Moisturizers</div>
+              <div class="product-name">Night Cream</div>
+              <div class="product-desc">Restorative overnight treatment</div>
+              <div class="product-bottom">
+                <span class="product-price">$64</span>
+                <button class="add-btn" onclick="addToCart('Night Cream',64,'🌙')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="moisturizers">
+            <div class="product-img">
+              <img src="images/pump-bottles-lavender.png" alt="Day Cream SPF 30" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Day Cream SPF 30',58,'☀️')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Moisturizers</div>
+              <div class="product-name">Day Cream SPF 30</div>
+              <div class="product-desc">Protection &amp; hydration</div>
+              <div class="product-bottom">
+                <span class="product-price">$58</span>
+                <button class="add-btn" onclick="addToCart('Day Cream SPF 30',58,'☀️')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── CLEANSERS ── -->
+          <div class="product-card fade-up" data-category="cleansers">
+            <div class="product-img">
+              <img src="images/tube-bottles.png" alt="Gentle Cleanser" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Gentle Cleanser',38,'🌿')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Cleansers</div>
+              <div class="product-name">Gentle Cleanser</div>
+              <div class="product-desc">Soothing botanical wash</div>
+              <div class="product-bottom">
+                <span class="product-price">$38 <span class="old">$48</span></span>
+                <button class="add-btn" onclick="addToCart('Gentle Cleanser',38,'🌿')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── OILS ── -->
+          <div class="product-card fade-up" data-category="oils">
+            <div class="product-img">
+              <img src="images/amber-dropper-bottles.png" alt="Renewal Oil" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Renewal Oil',72,'🫙')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Oils</div>
+              <div class="product-name">Renewal Oil</div>
+              <div class="product-desc">Nourishing facial oil blend</div>
+              <div class="product-bottom">
+                <span class="product-price">$72</span>
+                <button class="add-btn" onclick="addToCart('Renewal Oil',72,'🫙')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="oils">
+            <div class="product-img">
+              <img src="images/serum-bottles-1.png" alt="Rosehip Oil" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Rosehip Oil',48,'🌹')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Oils</div>
+              <div class="product-name">Rosehip Oil</div>
+              <div class="product-desc">Pure organic rosehip extract</div>
+              <div class="product-bottom">
+                <span class="product-price">$48</span>
+                <button class="add-btn" onclick="addToCart('Rosehip Oil',48,'🌹')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="oils">
+            <div class="product-img">
+              <img src="images/spray-bottles.png" alt="Jojoba Oil" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Jojoba Oil',42,'🌾')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Oils</div>
+              <div class="product-name">Jojoba Oil</div>
+              <div class="product-desc">Balancing &amp; lightweight</div>
+              <div class="product-bottom">
+                <span class="product-price">$42</span>
+                <button class="add-btn" onclick="addToCart('Jojoba Oil',42,'🌾')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-up" data-category="oils">
+            <div class="product-img">
+              <img src="images/pump-bottles-cream.png" alt="Argan Oil" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Argan Oil',56,'⭐')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Oils</div>
+              <div class="product-name">Argan Oil</div>
+              <div class="product-desc">Moroccan beauty elixir</div>
+              <div class="product-bottom">
+                <span class="product-price">$56</span>
+                <button class="add-btn" onclick="addToCart('Argan Oil',56,'⭐')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── MASKS ── -->
+          <div class="product-card fade-up" data-category="masks">
+            <div class="product-img">
+              <img src="images/mask.jpg" alt="Glow Mask" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Glow Mask',45,'🎭')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Masks</div>
+              <div class="product-name">Glow Mask</div>
+              <div class="product-desc">Weekly brightening treatment</div>
+              <div class="product-bottom">
+                <span class="product-price">$45</span>
+                <button class="add-btn" onclick="addToCart('Glow Mask',45,'🎭')">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── TONERS ── -->
+          <div class="product-card fade-up" data-category="toners">
+            <div class="product-img">
+              <img src="images/toner.jpg" alt="Balance Toner" loading="lazy">
+              <div class="product-overlay">
+                <button class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.3rem;" onclick="addToCart('Balance Toner',32,'💦')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Toners</div>
+              <div class="product-name">Balance Toner</div>
+              <div class="product-desc">pH restoring mist</div>
+              <div class="product-bottom">
+                <span class="product-price">$32</span>
+                <button class="add-btn" onclick="addToCart('Balance Toner',32,'💦')">+</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Lilly<span>beauty</span></h3><span class="logo-sub">San Rafael</span>
+        <p>Advanced aesthetic treatments and medical-grade skincare for those who seek lasting results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="facial-treatments.html">HydraFacial</a></li>
+          <li><a href="facial-treatments.html">LED Facial</a></li>
+          <li><a href="facial-treatments.html">Dermaplaning</a></li>
+          <li><a href="facial-treatments.html">Oxygen Facial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="shipping.html">Shipping &amp; Returns</a></li>
+          <li><a href="ingredients.html">Ingredients</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Lillybeauty San Rafael. 123 Fourth Street, San Rafael, CA 94901</p>
+      <p>(628) 488-3954 · info@lillybeautymedspasanrafael.com</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head"><h3>Your Cart</h3><button class="cart-close-btn" id="cartClose">✕</button></div>
+  <div class="cart-items" id="cartItems"><div class="cart-empty"><span style="font-size:2rem">🛒</span>Your cart is empty</div></div>
+  <div class="cart-foot">
+    <div class="cart-tot"><span class="cart-tot-lbl">Total</span><span class="cart-tot-amt" id="cartTotal">$0.00</span></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;">Checkout</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
